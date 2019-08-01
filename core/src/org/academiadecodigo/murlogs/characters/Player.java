@@ -1,12 +1,13 @@
 package org.academiadecodigo.murlogs.characters;
 
 import com.badlogic.gdx.math.Rectangle;
+import org.academiadecodigo.murlogs.items.Wallet;
 
 public class Player extends Rectangle {
 
     private int goodDecisions;
     private int badDecisions;
-    private boolean hasWallet;
+    private Wallet wallet;
     private boolean stoleMoney;
     private boolean helpedGranny;
     private boolean hasGift;
@@ -23,6 +24,7 @@ public class Player extends Rectangle {
         if(!stoleMoney){
             goodDecisions++;
         }
+        wallet.setHasMoney(false);
         badDecisions++;
     }
 
@@ -40,6 +42,10 @@ public class Player extends Rectangle {
         goodDecisions++;
     }
 
+    private void giveWallet(Granny granny){
+        granny.setWallet(wallet);
+    }
+
     public int getGoodDecisions() {
         return goodDecisions;
     }
@@ -48,12 +54,12 @@ public class Player extends Rectangle {
         return badDecisions;
     }
 
-    public boolean getHasWallet() {
-        return hasWallet;
+    public Wallet getWallet() {
+        return wallet;
     }
 
-    public void setHasWallet(boolean hasWallet) {
-        this.hasWallet = hasWallet;
+    public void setWallet(Wallet wallet) {
+        this.wallet = wallet;
     }
 
     public boolean hasStoleMoney() {
