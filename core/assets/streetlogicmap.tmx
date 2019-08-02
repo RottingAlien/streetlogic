@@ -2,8 +2,8 @@
 <map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="300" height="300" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="73">
  <tileset firstgid="1" source="Exterior-General.tsx"/>
  <tileset firstgid="129" source="Exterior.tsx"/>
- <tileset firstgid="1233" source="Exterior-Windows&amp;Doors.tsx"/>
- <tileset firstgid="1489" source="Rails&amp;Stairs.tsx"/>
+ <tileset firstgid="1233" source="Exterior-WindowsAndDoors.tsx"/>
+ <tileset firstgid="1489" source="RailsAndStairs.tsx"/>
  <tileset firstgid="1745" source="Humans1B.tsx"/>
  <tileset firstgid="1937" source="academia.tsx"/>
  <layer id="10" name="Background" width="300" height="300">

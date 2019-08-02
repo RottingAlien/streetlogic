@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.2" tiledversion="1.2.3" name="Exterior-Windows&amp;Doors" tilewidth="16" tileheight="16" tilecount="256" columns="16">
- <image source="../../Horror City Tile Pack/TileD_PHC_Exterior-Windows&amp;Doors.png" width="256" height="256"/>
+ <image source="TileD_PHC_Exterior-WindowsAndDoors.png" width="256" height="256"/>
 </tileset>
