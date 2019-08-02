@@ -5,15 +5,21 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import org.academiadecodigo.murlogs.Globals;
+import org.academiadecodigo.murlogs.Initial;
 import org.academiadecodigo.murlogs.StreetLogic;
 
 import javax.swing.plaf.nimbus.State;
 
 public class InitialMenu implements Screen {
     StreetLogic game;
+
+    Initial initialMenu;
 
     OrthographicCamera camera;
 
@@ -22,6 +28,8 @@ public class InitialMenu implements Screen {
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
+        initialMenu = new Initial();
+
 
     }
     @Override
@@ -36,10 +44,9 @@ public class InitialMenu implements Screen {
 
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
-
         game.batch.begin();
-        game.font.draw(game.batch, "Welcome to Drop!!! ", 100, 150);
-        game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
+        game.batch.draw(initialMenu.sprite, 0, 0);
+        game.font.draw(game.batch, "Tap anywhere to begin!", Globals.GAME_WIDTH/2, 100);
         game.batch.end();
 
         if (Gdx.input.isTouched()) {
