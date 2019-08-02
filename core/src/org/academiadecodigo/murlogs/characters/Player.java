@@ -6,12 +6,13 @@ import org.academiadecodigo.murlogs.Globals;
 
 public class Player extends AbstractCharacter {
 
-    private enum PlayerState{
+    public enum PlayerState{
         IDLE,
         GOINGRIGHT,
         GOINGLEFT,
         GOINGUP,
-        GOINGDOWN
+        GOINGDOWN,
+        CANTMOVE
 
 
     }

@@ -9,7 +9,13 @@ import com.badlogic.gdx.math.Rectangle;
 import org.academiadecodigo.murlogs.Background;
 import org.academiadecodigo.murlogs.StreetLogic;
 import org.academiadecodigo.murlogs.Walls;
+import org.academiadecodigo.murlogs.characters.AbstractCharacter;
+import org.academiadecodigo.murlogs.characters.Granny;
+import org.academiadecodigo.murlogs.characters.Npc;
 import org.academiadecodigo.murlogs.characters.Player;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class GameScreen implements Screen {
 
@@ -18,9 +24,12 @@ public class GameScreen implements Screen {
     Background background;
     private Player player;
     private Walls walls;
+    Granny granny;
+    List<AbstractCharacter> npcList;
 
     public GameScreen(StreetLogic game) {
         this.game = game;
+        npcList = new LinkedList<>();
         walls = new Walls();
         background = new Background();
         camera = new OrthographicCamera();
@@ -30,8 +39,10 @@ public class GameScreen implements Screen {
         player.y = 140;
         player.width = 16;
         player.height = 32;
+        granny = new Granny(game.batch);
         camera.position.x = player.x + player.width / 2;
         camera.position.y = player.y + player.height / 2;
+        npcList.add(granny);
 
     }
 
@@ -43,27 +54,31 @@ public class GameScreen implements Screen {
     public void handleInput() {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             player.moveRight();
-            if (checkCollisions()){
+            if (checkCollisions()) {
                 player.moveLeft();
+                player.playerState = Player.PlayerState.GOINGRIGHT;
             }
 
         }
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             player.moveLeft();
-            if (checkCollisions()){
+            if (checkCollisions()) {
                 player.moveRight();
+                player.playerState = Player.PlayerState.GOINGLEFT;
             }
         }
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             player.moveUp();
-            if (checkCollisions()){
+            if (checkCollisions()) {
                 player.moveDown();
+                player.playerState = Player.PlayerState.GOINGUP;
             }
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             player.moveDown();
-            if (checkCollisions()){
+            if (checkCollisions()) {
                 player.moveUp();
+                player.playerState = Player.PlayerState.GOINGDOWN;
             }
         }
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
@@ -77,9 +92,9 @@ public class GameScreen implements Screen {
 
     public void update() {
 
-
+        if (!(player.playerState == Player.PlayerState.CANTMOVE)) {
             handleInput();
-
+        }
 
 
         if (player.x > 160) {
@@ -100,6 +115,15 @@ public class GameScreen implements Screen {
                 return true;
             }
         }
+
+        for (AbstractCharacter npc : npcList) {
+            if (player.overlaps(npc)) {
+                player.playerState = Player.PlayerState.CANTMOVE;
+                npc.talk();
+                player.playerState = Player.PlayerState.IDLE;
+                return true;
+            }
+        }
         return false;
     }
 
@@ -112,6 +136,7 @@ public class GameScreen implements Screen {
         game.batch.begin();
         game.batch.draw(background.sprite, 0, 0);
         game.batch.draw(player.bodySprite, player.x, player.y);
+        game.batch.draw(granny.bodySprite, granny.x, granny.y);
         game.batch.end();
     }
 

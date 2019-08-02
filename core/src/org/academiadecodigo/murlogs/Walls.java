@@ -2,11 +2,12 @@ package org.academiadecodigo.murlogs;
 
 
 import com.badlogic.gdx.math.Rectangle;
+import org.academiadecodigo.murlogs.Interface.Colidable;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Walls {
+public class Walls implements Colidable {
 
     public List<Rectangle> rectangles = new LinkedList<>();
 
