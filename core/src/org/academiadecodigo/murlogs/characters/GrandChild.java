@@ -8,7 +8,5 @@ import com.badlogic.gdx.math.Rectangle;
 public class GrandChild extends AbstractCharacter{
 
 
-    public GrandChild(Texture texture, SpriteBatch spriteBatch) {
-        super(texture, spriteBatch);
-    }
+    public GrandChild(Texture texture, SpriteBatch spriteBatch) { }
 }

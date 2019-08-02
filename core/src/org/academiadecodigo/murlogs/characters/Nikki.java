@@ -6,9 +6,7 @@ import com.badlogic.gdx.math.Rectangle;
 
 public class Nikki extends AbstractCharacter{
 
-    public Nikki(Texture texture, SpriteBatch spriteBatch) {
-        super(texture, spriteBatch);
-    }
+    public Nikki(Texture texture, SpriteBatch spriteBatch) {}
 
 
 }

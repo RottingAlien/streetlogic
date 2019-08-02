@@ -7,7 +7,5 @@ import org.academiadecodigo.murlogs.items.Wallet;
 
 public class Granny extends AbstractCharacter{
 
-    public Granny(Texture texture, SpriteBatch spriteBatch) {
-        super(texture, spriteBatch);
-    }
+    public Granny(Texture texture, SpriteBatch spriteBatch) {}
 }

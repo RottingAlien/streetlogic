@@ -1,0 +1,6 @@
+ <tileset firstgid="1489" source="RailsAndStairs.tsx"/>
+
+ <tileset firstgid="1937" source="academia.tsx"/>
+ <tileset firstgid="129" source="Exterior.tsx"/>
+ <tileset firstgid="1233" source="Exterior-WindowsAndDoors.tsx"/>
+  <tileset firstgid="1" source="Exterior-General.tsx"/>
