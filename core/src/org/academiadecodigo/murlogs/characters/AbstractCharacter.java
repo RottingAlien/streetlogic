@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import org.academiadecodigo.murlogs.Interface.Colidable;
+import org.academiadecodigo.murlogs.Progress;
 
 import java.awt.*;
 
@@ -12,6 +13,7 @@ public abstract class AbstractCharacter extends Rectangle implements Colidable {
 
     public Texture bodyTexture;
     public Sprite bodySprite;
+
 
     public void talk(){}
 
