@@ -9,8 +9,12 @@ import java.awt.*;
 
 public abstract class AbstractCharacter extends Rectangle {
 
-    public Texture characterBodyTexture;
-    public Sprite sprite;
+    public Texture bodyTexture;
+    public Sprite bodySprite;
+
+    public Texture photoTexture;
+    public Sprite photoSprite;
+
 
 
 }

@@ -5,16 +5,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.viewport.FillViewport;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import org.academiadecodigo.murlogs.Background;
-import org.academiadecodigo.murlogs.Globals;
 import org.academiadecodigo.murlogs.StreetLogic;
 import org.academiadecodigo.murlogs.Walls;
 import org.academiadecodigo.murlogs.characters.Player;
@@ -119,7 +111,7 @@ public class GameScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
         game.batch.draw(background.sprite, 0, 0);
-        game.batch.draw(player.sprite, player.x, player.y);
+        game.batch.draw(player.bodySprite, player.x, player.y);
         game.batch.end();
     }
 

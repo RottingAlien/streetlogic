@@ -2,10 +2,7 @@ package org.academiadecodigo.murlogs.characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import org.academiadecodigo.murlogs.Globals;
-import org.academiadecodigo.murlogs.items.Wallet;
 
 public class Player extends AbstractCharacter {
 
@@ -32,8 +29,8 @@ public class Player extends AbstractCharacter {
     public int badDecisions = 0;
 
     public Player(){
-        characterBodyTexture = new Texture("playeridle.png");
-        sprite =  new Sprite(characterBodyTexture);
+        bodyTexture = new Texture("playeridle.png");
+        bodySprite =  new Sprite(bodyTexture);
     }
 
 
@@ -65,24 +62,24 @@ public class Player extends AbstractCharacter {
 
     public void updatePlayerState(){
         if(playerState==PlayerState.IDLE){
-            characterBodyTexture=new Texture("playeridle.png");
-            sprite = new Sprite(characterBodyTexture);
+            bodyTexture =new Texture("playeridle.png");
+            bodySprite = new Sprite(bodyTexture);
         }
         if(playerState==PlayerState.GOINGRIGHT){
-            characterBodyTexture=new Texture("playerright.png");
-            sprite = new Sprite(characterBodyTexture);
+            bodyTexture =new Texture("playerright.png");
+            bodySprite = new Sprite(bodyTexture);
         }
         if(playerState==PlayerState.GOINGLEFT){
-            characterBodyTexture=new Texture("playerleft.png");
-            sprite = new Sprite(characterBodyTexture);
+            bodyTexture =new Texture("playerleft.png");
+            bodySprite = new Sprite(bodyTexture);
         }
         if(playerState==PlayerState.GOINGUP){
-            characterBodyTexture=new Texture("playerup.png");
-            sprite = new Sprite(characterBodyTexture);
+            bodyTexture =new Texture("playerup.png");
+            bodySprite = new Sprite(bodyTexture);
         }
         if(playerState==PlayerState.GOINGDOWN){
-            characterBodyTexture=new Texture("playeridle.png");
-            sprite = new Sprite(characterBodyTexture);
+            bodyTexture =new Texture("playeridle.png");
+            bodySprite = new Sprite(bodyTexture);
         }
     }
 

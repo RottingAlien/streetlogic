@@ -5,7 +5,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import org.academiadecodigo.murlogs.items.Wallet;
 
-public class Granny extends AbstractCharacter{
+public class Granny extends AbstractCharacter implements Npc{
 
-    public Granny(Texture texture, SpriteBatch spriteBatch) {}
+    public Granny() {
+
+    }
 }
