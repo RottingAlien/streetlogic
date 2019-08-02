@@ -9,10 +9,7 @@ import com.badlogic.gdx.math.Rectangle;
 import org.academiadecodigo.murlogs.Background;
 import org.academiadecodigo.murlogs.StreetLogic;
 import org.academiadecodigo.murlogs.Walls;
-import org.academiadecodigo.murlogs.characters.AbstractCharacter;
-import org.academiadecodigo.murlogs.characters.Granny;
-import org.academiadecodigo.murlogs.characters.Npc;
-import org.academiadecodigo.murlogs.characters.Player;
+import org.academiadecodigo.murlogs.characters.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -25,6 +22,11 @@ public class GameScreen implements Screen {
     private Player player;
     private Walls walls;
     Granny granny;
+    Nikki nikki;
+    GrandChild grandChild1;
+    GrandChild2 grandChild2;
+    Assassin assassin;
+    Car car;
     List<AbstractCharacter> npcList;
 
     public GameScreen(StreetLogic game) {
@@ -39,11 +41,23 @@ public class GameScreen implements Screen {
         player.y = 140;
         player.width = 16;
         player.height = 32;
-        granny = new Granny(game.batch);
+        granny=new Granny();
+        nikki=new Nikki();
+        assassin=new Assassin();
+        grandChild1=new GrandChild();
+        grandChild2=new GrandChild2();
+        car=new Car();
+
+
+
         camera.position.x = player.x + player.width / 2;
         camera.position.y = player.y + player.height / 2;
         npcList.add(granny);
-
+        npcList.add(nikki);
+        npcList.add(grandChild1);
+        npcList.add(grandChild2);
+        npcList.add(assassin);
+        npcList.add(car);
     }
 
     @Override
@@ -118,9 +132,8 @@ public class GameScreen implements Screen {
 
         for (AbstractCharacter npc : npcList) {
             if (player.overlaps(npc)) {
-                player.playerState = Player.PlayerState.CANTMOVE;
-                npc.talk();
-                player.playerState = Player.PlayerState.IDLE;
+                System.out.println("colliding");
+                npc.isTalking = true;
                 return true;
             }
         }
@@ -137,6 +150,22 @@ public class GameScreen implements Screen {
         game.batch.draw(background.sprite, 0, 0);
         game.batch.draw(player.bodySprite, player.x, player.y);
         game.batch.draw(granny.bodySprite, granny.x, granny.y);
+        game.batch.draw(nikki.bodySprite,nikki.x,nikki.y);
+        game.batch.draw(grandChild1.bodySprite,grandChild1.x,grandChild2.y);
+        game.batch.draw(grandChild2.bodySprite,grandChild2.x,grandChild2.y);
+        game.batch.draw(assassin.bodySprite,assassin.x,assassin.y);
+        game.batch.draw(car.bodySprite,car.x,car.y);
+        for (AbstractCharacter npc : npcList) {
+            if (npc instanceof Npc && npc.isTalking) {
+                Npc npc1 = (Npc) npc;
+                    game.batch.draw(npc1.talk(), player.x-75, player.y-60);
+                    player.playerState= Player.PlayerState.CANTMOVE;
+                    if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
+                        npc.isTalking=false;
+                        player.playerState= Player.PlayerState.IDLE;
+                    };
+            }
+        }
         game.batch.end();
     }
 

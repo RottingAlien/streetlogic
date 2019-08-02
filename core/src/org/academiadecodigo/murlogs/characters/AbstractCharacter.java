@@ -9,13 +9,15 @@ import org.academiadecodigo.murlogs.Progress;
 
 import java.awt.*;
 
-public abstract class AbstractCharacter extends Rectangle implements Colidable {
+public abstract class AbstractCharacter extends Rectangle implements Npc {
 
     public Texture bodyTexture;
     public Sprite bodySprite;
+    public boolean isTalking;
+    public int dialogPosX;
+    public int dialogPosY;
 
 
-    public void talk(){}
 
     public void create(){}
 

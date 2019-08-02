@@ -6,6 +6,12 @@ import org.academiadecodigo.murlogs.Globals;
 
 public class Player extends AbstractCharacter {
 
+
+    @Override
+    public Sprite talk() {
+        return null;
+    }
+
     public enum PlayerState{
         IDLE,
         GOINGRIGHT,

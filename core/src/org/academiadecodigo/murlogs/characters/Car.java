@@ -2,32 +2,33 @@ package org.academiadecodigo.murlogs.characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 
-public class Nikki extends AbstractCharacter implements Npc{
+public class Car extends AbstractCharacter implements Npc{
 
 
-
+Texture dialogTexture;
+Sprite dialogSprite;
 
     public boolean finishedTalk;
 
-    public Nikki() {
+    public Car() {
 
-        bodyTexture = new Texture("nikki.png");
+        bodyTexture = new Texture("borkencar.png");
         bodySprite = new Sprite(bodyTexture);
         create();
         dialogPosX = 100;
         dialogPosY = 100;
+        dialogTexture = new Texture("talk/grandfather/1.lostwallet.png");
+        dialogSprite = new Sprite(dialogTexture);
 
 
     }
 
     public void create() {
-        x = 841;
-        y = 769;
-        width = 16;
-        height = 32;
+        x = 914;
+        y = 391;
+        width = 74;
+        height = 51;
     }
 
 

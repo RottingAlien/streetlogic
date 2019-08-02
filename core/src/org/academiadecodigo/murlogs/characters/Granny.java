@@ -9,22 +9,22 @@ import org.academiadecodigo.murlogs.screens.InitialMenu;
 
 public class Granny extends AbstractCharacter implements Npc {
 
-    SpriteBatch batch;
-    Texture lostWalletDialog;
-    Sprite lostWalletSprite;
-
 
     public boolean finishedTalk;
-    public boolean isTalking;
+    private SpriteBatch batch;
 
-    public Granny(SpriteBatch batch) {
-        this.batch = batch;
+    Texture dialogTexture;
+    public static Sprite dialogSprite;
+
+    public Granny() {
+
         bodyTexture = new Texture("granny.png");
         bodySprite = new Sprite(bodyTexture);
         create();
-        lostWalletDialog = new Texture("talk/grandfather/1_lostWallet.png");
-        lostWalletSprite = new Sprite(lostWalletDialog);
-
+        dialogPosX = 100;
+        dialogPosY = 100;
+        dialogTexture = new Texture("talk/grandfather/1.lostwallet.png");
+        dialogSprite = new Sprite(dialogTexture);
 
 
     }
@@ -37,11 +37,17 @@ public class Granny extends AbstractCharacter implements Npc {
     }
 
     @Override
-    public void talk() {
-        while (!finishedTalk) {
+    public Sprite talk() {
+        return dialogSprite;
+
+    }
 
 
+    public int getDialogPosX() {
+        return dialogPosX;
+    }
 
-        }
+    public int getDialogPosY() {
+        return dialogPosY;
     }
 }

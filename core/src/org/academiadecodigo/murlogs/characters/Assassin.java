@@ -2,19 +2,17 @@ package org.academiadecodigo.murlogs.characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 
-public class Nikki extends AbstractCharacter implements Npc{
+public class Assassin extends AbstractCharacter implements Npc{
 
 
 
 
     public boolean finishedTalk;
 
-    public Nikki() {
+    public Assassin() {
 
-        bodyTexture = new Texture("nikki.png");
+        bodyTexture = new Texture("assassin.png");
         bodySprite = new Sprite(bodyTexture);
         create();
         dialogPosX = 100;
@@ -24,8 +22,8 @@ public class Nikki extends AbstractCharacter implements Npc{
     }
 
     public void create() {
-        x = 841;
-        y = 769;
+        x = 1259;
+        y = 914;
         width = 16;
         height = 32;
     }
