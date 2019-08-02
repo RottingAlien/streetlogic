@@ -3,6 +3,8 @@ package org.academiadecodigo.murlogs.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
@@ -27,6 +29,9 @@ public class GameScreen implements Screen {
     GrandChild2 grandChild2;
     Assassin assassin;
     Car car;
+    private Sound voiceSound;
+    private Music streetMusic;
+
     List<AbstractCharacter> npcList;
 
     public GameScreen(StreetLogic game) {
@@ -34,6 +39,8 @@ public class GameScreen implements Screen {
         npcList = new LinkedList<>();
         walls = new Walls();
         background = new Background();
+        voiceSound = Gdx.audio.newSound(Gdx.files.internal("sound/bla_bla_man.wav"));
+        streetMusic = Gdx.audio.newMusic(Gdx.files.internal("sound/nikki_song.mp3"));
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 320, 180);
         player = new Player();
@@ -47,6 +54,8 @@ public class GameScreen implements Screen {
         grandChild1=new GrandChild();
         grandChild2=new GrandChild2();
         car=new Car();
+        streetMusic.setLooping(true);
+        streetMusic.play();
 
 
 
@@ -132,6 +141,7 @@ public class GameScreen implements Screen {
 
         for (AbstractCharacter npc : npcList) {
             if (player.overlaps(npc)) {
+                voiceSound.play();
                 System.out.println("colliding");
                 npc.isTalking = true;
                 return true;
@@ -157,6 +167,7 @@ public class GameScreen implements Screen {
         game.batch.draw(car.bodySprite,car.x,car.y);
         for (AbstractCharacter npc : npcList) {
             if (npc instanceof Npc && npc.isTalking) {
+
                 Npc npc1 = (Npc) npc;
                     game.batch.draw(npc1.talk(), player.x-75, player.y-60);
                     player.playerState= Player.PlayerState.CANTMOVE;
